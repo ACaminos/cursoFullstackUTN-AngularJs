@@ -1,2 +1,2 @@
 # cursoFullstackUTN-AngularJs
-Segundo modulo de bootcamp UTN - Proffesional FullStack Developer
+Segundo modulo de bootcamp UTN - Professional FullStack Developer
