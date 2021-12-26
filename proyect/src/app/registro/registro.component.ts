@@ -14,10 +14,10 @@ export class RegistroComponent implements OnInit {
     private fb:FormBuilder
   ) { 
     this.formulario= this.fb.group({
-      nombre: ["", [Validators.required]],
-      apellido: ["", [Validators.required]],
-      mail: ["", [Validators.required]],
-      password: ["", [Validators.required]]
+      nombre: ["", [Validators.required, Validators.minLength(3)]],
+      apellido: ["", [Validators.required, Validators.minLength(3)]],
+      mail: ["", [Validators.required, Validators.minLength(3)]],
+      password: ["", [Validators.required, Validators.minLength(3)]]
 
     })
   }
