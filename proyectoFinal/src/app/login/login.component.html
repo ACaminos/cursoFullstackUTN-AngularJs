@@ -1,1 +1,19 @@
-<p>login works!</p>
+<form>
+    <div>
+        <label>e-mail</label>
+        <input type="email" formControlName="mail">
+    </div><br>
+<!--     <div *ngIf="formulario.get('mail')?.errors && formulario.get('mail')?.dirty">
+        El campo es obligatorio
+    </div><br> -->
+
+    <div>
+        <label>Contraseña</label>
+        <input type="password" formControlName="password">
+    </div><br>
+<!--     <div *ngIf="formulario.get('password')?.errors && formulario.get('password')?.dirty">
+        El campo es obligatorio
+    </div><br> -->
+
+    <button type="submit">Registrarse</button>
+</form>

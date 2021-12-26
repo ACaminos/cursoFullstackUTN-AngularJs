@@ -1,1 +1,50 @@
-<p>registro works!</p>
+<form [formGroup]="formulario" (ngSubmit)="registrarse()">
+    <div>
+        <label>Nombre</label>
+        <input type="text" formControlName="nombre">
+    </div><br>
+    <div *ngIf="formulario.get('nombre')?.errors && formulario.get('nombre')?.dirty">
+
+        <p *ngIf="formulario.get('nombre')?.hasError('required')">El campo es obligatorio</p>
+
+        <p *ngIf="formulario.get('nombre')?.hasError('minlength')">El campo debe tener al menos 3 caracteres</p>
+
+    </div><br>
+
+    <div>
+        <label>Apellido</label>
+        <input type="text" formControlName="apellido">
+    </div><br>
+    <div *ngIf="formulario.get('apellido')?.errors && formulario.get('apellido')?.dirty">
+        El campo es obligatorio
+    </div><br>
+
+    <div>
+        <label>Telefono</label>
+        <input type="tel" formControlName="tel">
+    </div><br><br>
+
+    <div>
+        <label>e-mail</label>
+        <input type="email" formControlName="mail">
+    </div><br>
+    <div *ngIf="formulario.get('mail')?.errors && formulario.get('mail')?.dirty">
+        El campo es obligatorio
+    </div><br>
+
+    <div>
+        <label>Contraseña</label>
+        <input type="password" formControlName="password">
+    </div><br>
+    <div *ngIf="formulario.get('password')?.errors && formulario.get('password')?.dirty">
+
+        <p *ngIf="formulario.get('password')?.hasError('required')">El campo es obligatorio</p>
+
+        <p *ngIf="formulario.get('password')?.hasError('minlength')">El campo debe tener al menos 3 caracteres</p>
+
+        <p *ngIf="formulario.get('password')?.hasError('maxlength')">El campo debe tener como max 10 caracteres</p>
+
+    </div><br>
+
+    <button type="submit" [disabled]="formulario.invalid">Registrarse</button>
+</form>
