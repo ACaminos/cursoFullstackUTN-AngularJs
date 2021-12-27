@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductosService } from '../../services/productos.service';
 
 @Component({
   selector: 'app-home',
@@ -6,19 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  nombre:any = "Jeff"
-  condicion:any = false
-  nombre_persona:any = ""
+  productos:any=[]
   
-  constructor() {}
-
-  cambiarNombre() {
-    this.nombre = "jose"
-    this.condicion = true
-  }
-
-  bindeo(){
-    this.nombre_persona = ""
+  constructor(
+    private productosSrv:ProductosService
+  ) {
+    this.productosSrv.getProductos()
+    .subscribe((data:any)=> {
+      console.log(data)
+      if (data["results"]){
+        this.productos=data["results"]
+      }
+    })
   }
 
   ngOnInit(): void {

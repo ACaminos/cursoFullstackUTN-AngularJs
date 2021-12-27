@@ -1,5 +1,9 @@
-<p>Hola {{nombre}} !!</p>
-<button (click)="cambiarNombre()" [disabled]="condicion">cambiar nombre</button>
-<hr><br>
-<p>Hola {{nombre_persona}}, bienvenid@ ! como estas?</p>
-<input type="text" [(ngModel)]="nombre_persona">
+<div *ngIf="productos.length>0">
+    <div *ngFor="let producto of productos">
+        <p>{{productos.title}}</p>
+        <p>{{productos.price}}</p>
+    </div>
+</div>
+<div *ngIf="productos.length<=0">
+    no hay resultados
+</div>
